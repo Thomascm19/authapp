@@ -11,13 +11,22 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['Precios']">Precios</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" 
+          *ngIf="auth.isAuthenticated()">
         <a class="nav-link" [routerLink]="['Protegida']">Protegida</a>
       </li>
     </ul>
   
-    <span class="navbar-text">
-      <button class="btn btn-danger" (click)="login()">Login</button>
-    </span>
+    
+      <button type="button" 
+              (click)="login()"
+              *ngIf="!auth.isAuthenticated()"
+              class="btn btn-danger" >Ingresar</button>
+
+              <button type="button" 
+              (click)="salir()"
+              *ngIf="auth.isAuthenticated()"
+              class="btn btn-danger" >Salir</button>
+   
   </div>
 </nav>

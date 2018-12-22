@@ -12,6 +12,8 @@ import { APPROUTING } from './app.routes';
 
 // Servicios
 import { AuthService } from './services/auth.service.ts.service';
+import { AuthGuardService } from './services/auth-guard.service';
+
 
 
 
@@ -28,7 +30,8 @@ import { AuthService } from './services/auth.service.ts.service';
     APPROUTING
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
